@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+:root {
+  --ivory: #FAF7F2;
+  --cream: #F3EDE4;
+  --linen: #EAE2D6;
+  --sand: #C8B99A;
+  --oak: #6B5744;
+  --oak-dark: #3E2E20;
+  --charcoal: #1E1A16;
+  --text: #2A2420;
+  --text-mid: #5C534A;
+  --text-light: #8C8279;
+  --gold: #C8A84E;
+  --gold-light: #D4B96A;
+  --green: #5A7A5A;
+  --green-light: #7A9E7A;
+  --white: #FFFFFF;
+  --radius: 6px;
+  --radius-lg: 10px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--ivory);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  overflow-x: hidden;
+  animation: pageLoad 0.6s ease forwards;
+  color-scheme: light;
+}
+
+@keyframes pageLoad {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Paper grain texture overlay - handled by GrainOverlay component */
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  line-height: 1.15;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol { list-style: none; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: 'DM Sans', sans-serif;
+  border: none;
+  outline: none;
+}
+
+/* Section spacing */
+.section {
+  padding: 80px 0;
+}
+
+.section-narrow {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Section headers */
+.section-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.section-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  color: var(--oak-dark);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.section-body {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  max-width: 540px;
+}
+
+/* Divider */
+.divider {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--linen), transparent);
+}
+
+/* Form inputs */
+.form-input {
+  width: 100%;
+  padding: 11px 14px;
+  background: var(--ivory);
+  border: 1px solid var(--linen);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  color: var(--text);
+  transition: border-color 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.form-input:focus {
+  border-color: var(--gold);
+}
+
+.form-input::placeholder {
+  color: var(--text-light);
+}
+
+.form-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+/* Scroll offset for fixed navbar */
+[id] {
+  scroll-margin-top: 72px;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* Mobile sticky CTA */
+.mobile-sticky-cta {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-sticky-cta {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 900;
+    padding: 12px 20px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    background: rgba(250,247,242,0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid #EAE2D6;
+  }
+  .mobile-sticky-cta button {
+    flex: 1;
+    padding: 13px 0;
+    background: #C8A84E;
+    color: #FFFFFF;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+  }
+  body {
+    padding-bottom: 72px;
+  }
+}
