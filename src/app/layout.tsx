@@ -1,35 +1,10 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Fraunces, DM_Sans } from 'next/font/google'
 import './globals.css'
 import 'leaflet/dist/leaflet.css'
 import MobileCTA from '@/components/MobileCTA'
 import GrainOverlay from '@/components/GrainOverlay'
 import ScrollToTop from '@/components/ScrollToTop'
 import ChatBot from '@/components/ChatBot'
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-playfair',
-  display: 'swap',
-})
-
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-fraunces',
-  display: 'swap',
-})
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-dm-sans',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   title: 'Ivory & Oak Cleaning Co. | Rooted in Care, Finished with Grace',
@@ -57,9 +32,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${fraunces.variable} ${dmSans.variable}`}>
+    <html lang="en">
       <head>
         <link rel="preload" as="image" href="/hero-poster.jpg" fetchPriority="high" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Fraunces:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" />
         <meta name="color-scheme" content="light" />
         <meta name="supported-color-schemes" content="light" />
       </head>
